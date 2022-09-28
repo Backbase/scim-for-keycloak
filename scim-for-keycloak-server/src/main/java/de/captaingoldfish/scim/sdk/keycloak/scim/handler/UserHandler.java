@@ -68,9 +68,12 @@ public class UserHandler extends ResourceHandler<User>
   {
     KeycloakSession keycloakSession = ((ScimKeycloakContext)context).getKeycloakSession();
     final String username = user.getUserName().get();
-    if (keycloakSession.users().getUserByUsername(keycloakSession.getContext().getRealm(), username) != null)
+    UserModel existingUser = keycloakSession.users()
+                                            .getUserByUsername(keycloakSession.getContext().getRealm(), username);
+    if (existingUser != null)
     {
-      throw new ConflictException("the username '" + username + "' is already taken");
+      user.setId(existingUser.getId());
+      return updateResource(user, context);
     }
     UserModel userModel = keycloakSession.users().addUser(keycloakSession.getContext().getRealm(), username);
     userModel = userToModel(user, userModel);
