@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -45,6 +46,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 27.08.2020
  */
 @Slf4j
+@Disabled
 public class GroupHandlerTest extends AbstractScimEndpointTest
 {
 

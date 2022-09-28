@@ -3,6 +3,7 @@ package de.captaingoldfish.scim.sdk.keycloak.provider;
 import org.keycloak.Config;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
+import org.keycloak.models.utils.PostMigrationEvent;
 import org.keycloak.services.resource.RealmResourceProvider;
 import org.keycloak.services.resource.RealmResourceProviderFactory;
 
@@ -61,7 +62,12 @@ public class ScimEndpointProviderFactory implements RealmResourceProviderFactory
   @Override
   public void postInit(KeycloakSessionFactory factory)
   {
-    RealmRoleInitializer.initializeRoles(factory);
+    factory.register((event) -> {
+      if (event instanceof PostMigrationEvent)
+      {
+        RealmRoleInitializer.initializeRoles(factory);
+      }
+    });
   }
 
   @Override

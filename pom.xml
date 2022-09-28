@@ -24,14 +24,13 @@
     <modules>
         <module>scim-for-keycloak-resources</module>
         <module>scim-for-keycloak-server</module>
-        <module>scim-for-keycloak-deployment</module>
         <module>scim-for-keycloak-client</module>
         <module>scim-for-keycloak-frontend-integration-tests</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -49,7 +48,7 @@
         <version.h2>1.4.200</version.h2>
 
         <!-- plugin versions -->
-        <version.maven.ear.plugin>3.1.0</version.maven.ear.plugin>
+        <version.maven.assembly.plugin>3.4.1</version.maven.assembly.plugin>
         <version.maven.versions.plugin>2.8.1</version.maven.versions.plugin>
         <version.maven.compiler.plugin>3.8.1</version.maven.compiler.plugin>
         <version.maven.formatter.plugin>2.13.0</version.maven.formatter.plugin>
@@ -119,20 +118,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-
-        <!-- logging dependencies -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
         </dependency>
 
         <!-- test-dependencies -->
